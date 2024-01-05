@@ -9,10 +9,21 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className={`dark text-foreground bg-background flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
+      <div className='flex gap-4'>
+        <Button variant='bordered' radius='md'>
+          Customized Theme Button
+        </Button>
+        <Button isDisabled color='primary' radius='md'>
+          Disabled
+        </Button>
+      </div>
       <div className='flex flex-wrap gap-4 items-center'>
         <Button radius='full' className='bg-green-500 text-white shadow-lg'>
+          Customize Button
+        </Button>
+        <Button radius='full' className='bg-green-500 p-8 text-white shadow-lg'>
           Customize Button
         </Button>
         <Button

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 // import { Button } from '@andi/ui';
+import { Chip } from '@nextui-org/react';
 
 import { Button } from '@nextui-org/button';
 
@@ -12,6 +13,7 @@ export default function Home() {
       className={`dark text-foreground bg-background flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
       <div className='flex gap-4'>
+        <Chip variant='bordered'>Chip</Chip>
         <Button variant='bordered' radius='md'>
           Customized Theme Button
         </Button>

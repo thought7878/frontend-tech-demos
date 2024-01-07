@@ -5,6 +5,7 @@ import { RadioGroup, Radio } from '@nextui-org/react';
 import type { VariantProps } from 'tailwind-variants';
 
 const item = tv({
+  // 每个slot/复杂组件的各个部分的 默认样式
   slots: {
     base: 'flex flex-col mb-4 sm:flex-row p-6 bg-white dark:bg-stone-900 drop-shadow-xl rounded-xl',
     imageWrapper:
@@ -24,19 +25,22 @@ const item = tv({
   },
   variants: {
     color: {
+      // 样式会追加到slots的sizeButton/buyButton/addToBagButton的样式后面
       primary: {
         buyButton: 'bg-blue-500 shadow-blue-500/50',
         sizeButton: 'peer-checked:bg-blue',
         addToBagButton: 'text-blue-500 border-blue-500',
+        //
+        // price: 'text-blue-500',
       },
       secondary: {
-        buyButton: 'bg-purple-500 shadow-purple-500/50',
         sizeButton: 'peer-checked:bg-purple',
+        buyButton: 'bg-purple-500 shadow-purple-500/50',
         addToBagButton: 'text-purple-500 border-purple-500',
       },
       success: {
-        buyButton: 'bg-green-500 shadow-green-500/50',
         sizeButton: 'peer-checked:bg-green',
+        buyButton: 'bg-green-500 shadow-green-500/50',
         addToBagButton: 'text-green-500 border-green-500',
       },
     },
@@ -63,7 +67,8 @@ const App = () => {
     sizeButton,
     buyButton,
     addToBagButton,
-  } = item({ color });
+  } = item({ color }); // variants.color.primary|secondary
+  // console.log(item({ color }));
 
   return (
     <div>

@@ -1,5 +1,6 @@
 import { tv } from 'tailwind-variants';
 import { useState } from 'react';
+import { RadioGroup, Radio } from '@nextui-org/react';
 
 const alert = tv({
   slots: {
@@ -71,11 +72,29 @@ function App(props) {
   const { root, message, title } = alert({ severity, variant });
 
   return (
-    <div className={root()}>
-      <div className={title()}>Oops, something went wrong</div>
-      <div className={message()}>
-        Something went wrong saving your changes. Try again later.
+    <div className='p-12'>
+      <div className={root()}>
+        <div className={title()}>Oops, something went wrong</div>
+        <div className={message()}>
+          Something went wrong saving your changes. Try again later.
+        </div>
       </div>
+      <RadioGroup
+        label='Select variant:'
+        value={variant}
+        onChange={(event) => setVariant(event.target.value)}
+      >
+        <Radio value='filled'>filled</Radio>
+        <Radio value='outlined'>outlined</Radio>
+      </RadioGroup>
+      <RadioGroup
+        label='Select severity:'
+        value={severity}
+        onChange={(event) => setSeverity(event.target.value)}
+      >
+        <Radio value='success'>success</Radio>
+        <Radio value='error'>error</Radio>
+      </RadioGroup>
     </div>
   );
 }

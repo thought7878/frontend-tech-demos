@@ -11,6 +11,7 @@ const alert = tv({
   variants: {
     variant: {
       outlined: {
+        // 比没有 slot 的多了一层slot 名字，root
         root: 'border',
       },
       filled: {

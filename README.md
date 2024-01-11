@@ -10,3 +10,8 @@ https://github.com/nextui-org/nextui/issues/2154
 ## Bugs
 
 hard to appear https://github.com/nextui-org/nextui/issues/2082
+
+### 垃圾 bugs
+
+https://github.com/nextui-org/nextui/issues/2197
+https://github.com/nextui-org/nextui/issues/2125

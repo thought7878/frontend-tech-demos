@@ -1,53 +1,66 @@
 'use client';
 
 import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-  Tooltip,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownSection,
+  DropdownTrigger,
 } from '@nextui-org/react';
-import React from 'react';
 
-const TabBar = () => {
+function DropdownButton() {
   return (
-    <Navbar>
-      <NavbarBrand>
-        <p className='font-bold text-inherit'>ACME</p>
-      </NavbarBrand>
-      <NavbarContent className='hidden sm:flex gap-4' justify='center'>
-        <NavbarItem>
-          <Link color='foreground' href='#'>
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href='#' aria-current='page'>
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color='foreground' href='#'>
-            Integrations
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify='end'>
-        <NavbarItem className='hidden lg:flex'>
-          <Link href='#'>Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Tooltip content='I am a tooltip'>
-            <Button as={Link} color='primary' href='#' variant='flat'>
-              Sign Up
-            </Button>
-          </Tooltip>
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
+    <Dropdown>
+      <DropdownTrigger>
+        <UIIconButton>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth={2}
+            stroke='currentColor'
+            className='w-6 h-6'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              d='M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z'
+            />
+          </svg>
+        </UIIconButton>
+      </DropdownTrigger>
+      <DropdownMenu variant='faded' aria-label='Dropdown menu with description'>
+        <DropdownSection title='Actions' showDivider>
+          <DropdownItem key='new' shortcut='⌘N' description='Create a new file'>
+            New file
+          </DropdownItem>
+          <DropdownItem
+            key='copy'
+            shortcut='⌘C'
+            description='Copy the file link'
+          >
+            Copy link
+          </DropdownItem>
+          <DropdownItem
+            key='edit'
+            shortcut='⌘⇧E'
+            description='Allows you to edit the file'
+          >
+            Edit file
+          </DropdownItem>
+        </DropdownSection>
+        <DropdownSection title='Danger zone'>
+          <DropdownItem
+            key='delete'
+            className='text-danger'
+            color='danger'
+            shortcut='⌘⇧D'
+            description='Permanently delete the file'
+          >
+            Delete file
+          </DropdownItem>
+        </DropdownSection>
+      </DropdownMenu>
+    </Dropdown>
   );
-};
-
-export default TabBar;
+}

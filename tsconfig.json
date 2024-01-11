@@ -21,7 +21,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/slot/WithCompoundVariants.jsx"
+    "pages/slot/WithCompoundVariants.jsx",
+    "pages/variant/addingVariants.js",
+    "pages/react-aria-component/FileTrigger.jsx"
   ],
   "exclude": ["node_modules"]
 }

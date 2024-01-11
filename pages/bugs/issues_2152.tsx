@@ -9,7 +9,7 @@ export default function Component() {
         // selectionMode='multiple'
       >
         <AccordionItem
-          // onKeyDown={(e) => e.stopPropagation()}
+          onKeyDown={(e) => e.stopPropagation()}
           // onKeyDown={console.log}
           key='1'
           title='Accordion 1'

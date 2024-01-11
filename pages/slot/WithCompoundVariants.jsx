@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants';
 import { useState } from 'react';
-import { RadioGroup, Radio } from '@nextui-org/react';
+import { RadioGroup, Radio, Button } from '@nextui-org/react';
 
 const alert = tv({
   slots: {
@@ -96,6 +96,7 @@ function App(props) {
         <Radio value='success'>success</Radio>
         <Radio value='error'>error</Radio>
       </RadioGroup>
+      <Button type='reset'>reset</Button>
     </div>
   );
 }

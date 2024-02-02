@@ -1,19 +1,18 @@
 // This is a React Quiz from BFE.dev
 // What does the code snippet to the right output by console.log?
 'use client';
-
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-function A() {
+function A({ children }) {
   console.log('A');
-  return <B />;
+  return children;
 }
 
-const B = memo(() => {
+function B() {
   console.log('B');
   return <C />;
-});
+}
 
 function C() {
   console.log('C');
@@ -34,7 +33,9 @@ export default function App() {
   console.log('App');
   return (
     <div>
-      <A state={state} />
+      <A>
+        <B />
+      </A>
       <D />
     </div>
   );
@@ -42,16 +43,3 @@ export default function App() {
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<App />);
-
-/* 
-
-"App"   // first render before useEffect() worked
-"A"     // first render
-"B"     // first render
-"C"     // first render
-"D"     // first render
-"App"   // second render after useEffect() worked
-"A"     // second render -> no B because of memo() -> no C because no B
-"D"     // second render
-
-*/

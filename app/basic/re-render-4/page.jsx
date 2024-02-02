@@ -1,5 +1,4 @@
-// This is a React Quiz from BFE.dev
-// What does the code snippet to the right output by console.log?
+// 与 memo-2 对比
 
 'use client';
 

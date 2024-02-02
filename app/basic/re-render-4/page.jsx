@@ -18,7 +18,7 @@ function A({ children }) {
   
   Thus there are two ways to 
   prevent child components from re-rendering.
-    - wrapping them in `memeo`
+    - wrapping them in `memo`
     - passing them as `children` prop
  */
   useEffect(() => {

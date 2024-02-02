@@ -2,57 +2,46 @@
 // What does the code snippet to the right output by console.log?
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, {
+  useState,
+  memo,
+  createContext,
+  useEffect,
+  useContext,
+} from 'react';
 import ReactDOM from 'react-dom';
 
-function A() {
-  console.log('A');
-
-  useEffect(() => {
-    console.log('useEffect A');
-  }, []);
-  return <B />;
-}
+const MyContext = createContext(0);
 
 function B() {
+  const count = useContext(MyContext);
   console.log('B');
-
-  useEffect(() => {
-    console.log('useEffect B');
-  }, []);
-  return <C />;
+  return null;
 }
+
+const A = memo(() => {
+  console.log('A');
+  return <B />;
+});
 
 function C() {
   console.log('C');
-
-  useEffect(() => {
-    console.log('useEffect C');
-  }, []);
   return null;
 }
-
-function D() {
-  console.log('D');
-
-  useEffect(() => {
-    console.log('useEffect D');
-  }, []);
-  return null;
-}
-
 export default function App() {
   const [state, setState] = useState(0);
+
   useEffect(() => {
     setState((state) => state + 1);
     console.log('useEffect App');
   }, []);
+
   console.log('App');
   return (
-    <div>
-      <A state={state} />
-      <D />
-    </div>
+    <MyContext.Provider value={state}>
+      <A />
+      <C />
+    </MyContext.Provider>
   );
 }
 

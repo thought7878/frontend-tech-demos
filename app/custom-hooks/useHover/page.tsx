@@ -1,4 +1,7 @@
 'use client';
+/* 
+https://bigfrontend.dev/react/useHover
+*/
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -30,5 +33,10 @@ function useHover(): [React.RefObject<any>, boolean] {
 
 export default function UseHoverPage() {
   const [ref, isHovered] = useHover();
-  return <div ref={ref}>{isHovered ? 'hovered' : 'not hovered'}</div>;
+  return (
+    <div>
+      <div ref={ref}>{isHovered ? 'hovered' : 'not hovered'}</div>
+      <div className='bg-blue-500 p-5'>I do not use hover</div>
+    </div>
+  );
 }

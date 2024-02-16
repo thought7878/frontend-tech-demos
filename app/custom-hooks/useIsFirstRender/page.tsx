@@ -16,13 +16,20 @@ export function useIsFirstRender() {
 // export default useIsFirstRender;
 
 export default function MyComponent() {
-  const [count, setCount] = useState(0);
   const isFirstRender = useIsFirstRender();
 
-  // Rest of your component code...
+  const [count, setCount] = useState(0);
+
+  /* 
   const handleIncrement = useCallback(() => {
     setCount(count + 1);
-  }, [count]);
+  }, [count]); 
+  */
+  const handleIncrement = useCallback(() => {
+    setCount((count) => {
+      return count + 1;
+    });
+  }, []);
 
   const handleDecrement = useCallback(() => {
     setCount(count - 1);

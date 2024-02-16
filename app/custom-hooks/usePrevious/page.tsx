@@ -5,8 +5,11 @@ function usePrevious<T>(value: T) {
   const ref = useRef<T>();
 
   useEffect(() => {
+    console.log('in useEffect');
     ref.current = value;
   }, [value]);
+
+  console.log('after useEffect');
 
   return ref.current;
 }
@@ -14,6 +17,8 @@ function usePrevious<T>(value: T) {
 export default function UsePreviousPage() {
   const [count, setCount] = useState(0);
   const previousCount = usePrevious(count);
+
+  console.log('in Component');
 
   return (
     <div>

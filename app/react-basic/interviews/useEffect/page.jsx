@@ -22,13 +22,23 @@ export default function App() {
 
   //
   useEffect(() => {
-    console.log('useEffect no dependencies');
+    console.log('no dependencies');
   });
+  //
+  useEffect(() => {
+    console.log('with dependencies');
+
+    return () => {
+      console.log('with dependencies cleanup');
+    };
+  }, [state]);
 
   return (
     <div>
       <p>{state}</p>
-      {/* {console.log('render...')} */}
+
+      {console.log(`render...state=${state}`)}
+
       <button
         onClick={() => {
           setState(state + 1);

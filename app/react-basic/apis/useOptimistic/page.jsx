@@ -4,11 +4,13 @@ import { deliverMessage } from './actions.js';
 
 function Thread({ messages, sendMessage }) {
   const formRef = useRef();
+
   async function formAction(formData) {
-    addOptimisticMessage(formData.get('message'));
+    addOptimisticMessage(formData.get('message') + 'test');
     formRef.current.reset();
     await sendMessage(formData);
   }
+
   const [optimisticMessages, addOptimisticMessage] = useOptimistic(
     messages,
     (state, newMessage) => [
@@ -40,9 +42,11 @@ export default function App() {
   const [messages, setMessages] = useState([
     { text: 'Hello there!', sending: false, key: 1 },
   ]);
+
   async function sendMessage(formData) {
     const sentMessage = await deliverMessage(formData.get('message'));
     setMessages((messages) => [...messages, { text: sentMessage }]);
   }
+
   return <Thread messages={messages} sendMessage={sendMessage} />;
 }
